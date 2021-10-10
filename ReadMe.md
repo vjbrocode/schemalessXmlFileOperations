@@ -18,9 +18,8 @@ mvn clean install
 ```
 
 ###Run Employee Management Service (ems) jar
-```sh
-cd <jar file location / target build folder>  
-java -jar ems.jar  
+```sh 
+java -jar target/ems.jar
 ```
 
 ###Access SWAGGER-UI
