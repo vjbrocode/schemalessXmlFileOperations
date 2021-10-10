@@ -32,14 +32,21 @@ http://localhost:8080/swagger-ui/index.html#/
 ###Build docker image
 ```sh
 cd <project root>
+
+#Using shell script
 chmod +x build_docker_image.sh 
-./build_docker_image.sh 
+./build_docker_image.sh
+
+#OR Manually run below command on CLI
+docker build -t ems:1.0 .
+
 docker images
 ```
 
 ###Run as docker container
 ```sh
 docker run -d --name ems -p 8080:8080 ems:1.0 
+
 docker ps -a
 ```
 
