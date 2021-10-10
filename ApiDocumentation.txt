@@ -1,0 +1,108 @@
+#This doc shows sample endpoints to interact with application. (NOTE: It is not REST APIs. Just sample RPC endpoints to interact with App)
+
+1 - Add new employee
+2 - Delete employee by id
+3 - Delete employee by name or designation
+4 - Get all employees
+5 - Get employee by id
+
+======================================================================
+1 - Add new employee
+
+Request:
+curl -X POST "http://localhost:8080/api/v1/employee" -H "accept: */*" -H "Content-Type: application/json" 
+-d "<employee> <name>Mark</name> <age>25</age> <designation>Developer</designation></employee>"
+
+POST -> http://localhost:8080/api/v1/employee
+
+Response:
+SUCCESS
+
+======================================================================
+2 - Delete employee by id
+
+NOTE: Value "60" is employee id.
+
+Request:
+curl -X DELETE "http://localhost:8080/api/v1/employee/60" -H "accept: */*"
+
+DELETE -> http://localhost:8080/api/v1/employee/60 
+
+Response:
+SUCCESS
+
+======================================================================
+3 - Delete employee by name
+
+Request:
+curl -X DELETE "http://localhost:8080/api/v1/employee?property=name&value=Mark" -H "accept: */*"
+
+DELETE -> http://localhost:8080/api/v1/employee?property=name&value=Mark
+
+Response:
+SUCCESS
+
+======================================================================
+4 - Get all employees
+
+NOTE: Add few employees first to see records
+ 
+Request:
+curl -X GET "http://localhost:8080/api/v1/employees" -H "accept: */*"
+
+GET -> http://localhost:8080/api/v1/employees
+
+Response:
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+  <employee id="64">
+    <name>Vijay</name>
+    <age>29</age>
+    <designation>Software Engineer III</designation>
+    <address>
+      <doorNo>14</doorNo>
+      <street>Steet B</street>
+      <town>George Town</town>
+      <state>Cayman Islands</state>
+    </address>
+    <qualifications>
+      <ug>Cusat</ug>
+      <pg>MIT</pg>
+      <certifications>
+        <certification>Cisco</certification>
+        <certification>Microsoft</certification>
+      </certifications>
+    </qualifications>
+  </employee>
+</employees>
+
+======================================================================
+5 - Get employee by id
+
+NOTE: Value "64" is employee id.
+
+Request:
+curl -X GET "http://localhost:8080/api/v1/employee/64" -H "accept: */*"
+
+GET -> http://localhost:8080/api/v1/employee/64
+
+Response:
+<employee id="64">
+  <name>Vijay</name>
+  <age>29</age>
+  <designation>Software Engineer III</designation>
+  <address>
+    <doorNo>14</doorNo>
+    <street>Steet B</street>
+    <town>George Town</town>
+    <state>Cayman Islands</state>
+  </address>
+  <qualifications>
+    <ug>Cusat</ug>
+    <pg>MIT</pg>
+    <certifications>
+      <certification>Cisco</certification>
+      <certification>Microsoft</certification>
+    </certifications>
+  </qualifications>
+</employee>
